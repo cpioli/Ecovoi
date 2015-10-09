@@ -11,7 +11,9 @@ GameObject:
   - 223: {fileID: 22300000}
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400000}
-  m_Layer: 5
+  - 223: {fileID: 22300002}
+  - 225: {fileID: 22500000}
+  m_Layer: 8
   m_Name: HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +30,7 @@ GameObject:
   - 224: {fileID: 22400002}
   - 222: {fileID: 22200000}
   - 114: {fileID: 11400004}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: BuildingDecrease
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +47,7 @@ GameObject:
   - 224: {fileID: 22400004}
   - 222: {fileID: 22200002}
   - 114: {fileID: 11400006}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: BuildingIncrease
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,7 +65,7 @@ GameObject:
   - 222: {fileID: 22200008}
   - 114: {fileID: 11400016}
   - 114: {fileID: 11400022}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +82,7 @@ GameObject:
   - 224: {fileID: 22400024}
   - 222: {fileID: 22200014}
   - 114: {fileID: 11400024}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: WinSign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +99,7 @@ GameObject:
   - 224: {fileID: 22400026}
   - 222: {fileID: 22200016}
   - 114: {fileID: 11400026}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: LoseSign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +116,7 @@ GameObject:
   - 224: {fileID: 22400028}
   - 222: {fileID: 22200018}
   - 114: {fileID: 11400028}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: PausedSign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +133,7 @@ GameObject:
   - 224: {fileID: 22400030}
   - 222: {fileID: 22200020}
   - 114: {fileID: 11400030}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: AccumulatedBuildings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +150,7 @@ GameObject:
   - 224: {fileID: 22400032}
   - 222: {fileID: 22200022}
   - 114: {fileID: 11400032}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: StartSign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -450,15 +452,32 @@ Canvas:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   serializedVersion: 2
-  m_RenderMode: 0
+  m_RenderMode: 2
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: 752297623
+  m_SortingOrder: 2
+--- !u!223 &22300002
+Canvas:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_RenderMode: 1
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingLayerID: 752297623
+  m_SortingOrder: 2
 --- !u!224 &22400000
 RectTransform:
   m_ObjectHideFlags: 1
@@ -469,14 +488,14 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 22400002}
   - {fileID: 22400018}
   - {fileID: 22400030}
-  - {fileID: 22400002}
   - {fileID: 22400004}
   - {fileID: 22400024}
+  - {fileID: 22400032}
   - {fileID: 22400026}
   - {fileID: 22400028}
-  - {fileID: 22400032}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
@@ -495,7 +514,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 22400000}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: -144, y: -4}
@@ -529,10 +548,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 22400000}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -141, y: -53}
+  m_AnchoredPosition: {x: -150, y: -53}
   m_SizeDelta: {x: 265, y: 91}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22400024
@@ -563,7 +582,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 22400000}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -580,7 +599,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 22400000}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -597,10 +616,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 22400000}
-  m_RootOrder: 1
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 383.5, y: 240}
+  m_RootOrder: 2
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -265, y: -160}
   m_SizeDelta: {x: 498, y: 90}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22400032
@@ -614,12 +633,22 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 22400000}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 793, y: 306}
   m_Pivot: {x: .5, y: .5}
+--- !u!225 &22500000
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

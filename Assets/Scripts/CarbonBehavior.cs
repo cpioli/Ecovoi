@@ -37,10 +37,15 @@ public class CarbonBehavior : MonoBehaviour {
 	public enum CarbonState {NONE = 0, UNDERGROUND, ATMOSPHERIC};
 	public CarbonState carbonState;
 
+	private float xResolutionScale, yResolutionScale;
+	//because the canvas is working in world space with an absolute width and height
+	//I'll have to change things around.
+
 
 	public void Initialize(Vector2 startingLocation, CarbonState state) {
 		this.originalLocation = startingLocation;
 		this.carbonState = state;
+		print("original Location: " + originalLocation);
 	}
 
 	Vector3 previousLocation;
@@ -50,6 +55,17 @@ public class CarbonBehavior : MonoBehaviour {
 //	Animator anim;
 //
 	void Start(){
+		/*
+		 * A block of code to keep track of the resolution scales 
+		 */
+		print("Dimensions: " + Screen.width + ", " + Screen.height);
+		print("Size of World Object: " + GameObject.Find ("World").GetComponent<RectTransform>().sizeDelta);
+		xResolutionScale = Screen.width / GameObject.Find ("World").GetComponent<RectTransform>().lossyScale.x;
+		yResolutionScale = Screen.height / GameObject.Find ("World").GetComponent<RectTransform>().lossyScale.y ;
+
+		print("xResolutionScale: " + xResolutionScale);
+		print("yResolutionScale: " + yResolutionScale);
+
 //		anim = GetComponent<Animator>();
 		carbonBoundRT = skyPanel.GetComponent<RectTransform>();
 		carbonBoundRT = groundPanel.GetComponent<RectTransform>();
@@ -142,7 +158,6 @@ public class CarbonBehavior : MonoBehaviour {
 		if(gameManager.GetComponent<GameManager>().gameState != GameManager.GameState.INPLAY) return;
 		if(!carbonGrabbed) carbonGrabbed = true;
 		if (interactable){
-			transform.localScale = dragScale;
 			transform.position = Input.mousePosition;
 		}
 
@@ -184,7 +199,7 @@ public class CarbonBehavior : MonoBehaviour {
 					Instantiate(coalParticle, new Vector3 (transform.position.x, transform.position.y, -5), transform.rotation);
 					audio.PlayOneShot(coalAudio);
 					StartCoroutine("ProcessCarbon", timeToComplete);
-					//transform.SetParent(worldCanvas.transform);
+					transform.SetParent(worldCanvas.transform);
 					i = burnSlots.Length;
 				}
 			}

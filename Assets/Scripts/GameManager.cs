@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour {
 	
 	
 	void Update() {
-		
+		//print(Input.mousePosition);
 		switch(gameState) {
 		case GameState.GAMEOVER:
 			GameOver();
