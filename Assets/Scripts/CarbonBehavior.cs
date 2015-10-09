@@ -70,10 +70,10 @@ public class CarbonBehavior : MonoBehaviour {
 		carbonBoundRT = skyPanel.GetComponent<RectTransform>();
 		carbonBoundRT = groundPanel.GetComponent<RectTransform>();
 		SetState(this.carbonState);
-		factoryBoundMin.x = factoryPanel.transform.position.x - factoryPanel.GetComponent<RectTransform>().rect.width/2;
-		factoryBoundMin.y = factoryPanel.transform.position.y - factoryPanel.GetComponent<RectTransform>().rect.height/2;
-		factoryBoundMax.x = factoryPanel.transform.position.x + factoryPanel.GetComponent<RectTransform>().rect.width/2;
-		factoryBoundMax.y = factoryPanel.transform.position.y + factoryPanel.GetComponent<RectTransform>().rect.height/2;
+		//factoryBoundMin.x = factoryPanel.transform.position.x - factoryPanel.GetComponent<RectTransform>().rect.width/2;
+		//factoryBoundMin.y = factoryPanel.transform.position.y - factoryPanel.GetComponent<RectTransform>().rect.height/2;
+		//factoryBoundMax.x = factoryPanel.transform.position.x + factoryPanel.GetComponent<RectTransform>().rect.width/2;
+		//factoryBoundMax.y = factoryPanel.transform.position.y + factoryPanel.GetComponent<RectTransform>().rect.height/2;
 		carbonGrabbed = false;
 		originalScale = transform.localScale;
 		originalLocation = transform.position;
@@ -173,11 +173,12 @@ public class CarbonBehavior : MonoBehaviour {
 //		}
 	}
 
+	//called by OnMouseUp
 	public void fillSlots(string slots){
-		if (slots == "sequester"){
+		if (slots == "sequester"){ //sequestration queue
 			for (int i =0; i < sequesterSlots.Length; i++){
 				if(sequesterSlots[i].transform.childCount == 0){
-					transform.SetParent(sequesterSlots[i].transform);
+					transform.SetParent(sequesterSlots[i].transform); //this doesn't seem to work now that the Factory is in a separate canvas
 					transform.position = sequesterSlots[i].transform.position;
 					transform.localScale = factoryScale;
 					interactable = false;
@@ -189,7 +190,7 @@ public class CarbonBehavior : MonoBehaviour {
 				}
 			}
 		}
-		if (slots == "burn"){
+		if (slots == "burn"){ //burning queue
 			for (int i =0; i < burnSlots.Length; i++){
 				if(burnSlots[i].transform.childCount == 0){
 					transform.SetParent(burnSlots[i].transform);
@@ -204,7 +205,7 @@ public class CarbonBehavior : MonoBehaviour {
 				}
 			}
 		}
-		if (slots == "atmosphere"){
+		if (slots == "atmosphere"){ //fill the sky
 			for (int i =0; i < atmosphereSlots.Length; i++){
 				if(atmosphereSlots[i].transform.childCount == 0){
 					transform.SetParent(atmosphereSlots[i].transform);
@@ -218,7 +219,7 @@ public class CarbonBehavior : MonoBehaviour {
 				}
 			}
 		}
-		if (slots == "ground"){
+		if (slots == "ground"){ //fill the ground
 			for (int i =0; i < undergroundSlots.Length; i++){
 				if(undergroundSlots[i].transform.childCount == 0){
 					transform.SetParent(undergroundSlots[i].transform);
@@ -238,8 +239,14 @@ public class CarbonBehavior : MonoBehaviour {
 		if(gameManager.GetComponent<GameManager>().gameState != GameManager.GameState.INPLAY) return;
 		carbonGrabbed = false;
 		print("RELEASED CARBON!");
-		if(!(transform.position.x < factoryBoundMax.x && transform.position.x > factoryBoundMin.x
-		   && transform.position.y < factoryBoundMax.y && transform.position.y > factoryBoundMin.y))
+		print("transform.position: " + transform.position);
+		print("Min: " + factoryBoundMin + ", Max: " + factoryBoundMax);
+		if(
+			!(transform.position.x < factoryBoundMax.x 
+		   && transform.position.x > factoryBoundMin.x
+		   && transform.position.y < factoryBoundMax.y
+		   && transform.position.y > factoryBoundMin.y)
+		   )
 		{
 			transform.position = originalLocation;
 			print("Underground carbon WAS NOT ADDED!");

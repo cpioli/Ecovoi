@@ -237,8 +237,8 @@ MonoBehaviour:
   factoryScale: {x: .800000012, y: .800000012, z: 0}
   dragScale: {x: .5, y: .5, z: 0}
   originalLocation: {x: 0, y: 0}
-  factoryBoundMin: {x: 530, y: 303}
-  factoryBoundMax: {x: 709, y: 375}
+  factoryBoundMin: {x: 440, y: 149}
+  factoryBoundMax: {x: 590, y: 302}
   boundMin: {x: 0, y: 0}
   boundMax: {x: 0, y: 0}
   carbonState: 2
